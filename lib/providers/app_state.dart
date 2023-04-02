@@ -12,7 +12,6 @@ class AppState extends ChangeNotifier {
     notifyListeners();
     try {
       final data = await AppServices().getCoinData();
-      print(data);
       coinData = data;
       notifyListeners();
       isLoading = false;

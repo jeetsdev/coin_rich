@@ -8,7 +8,7 @@ Cross-platform, customer facing app developed using flutter
 
 ##### Demo:
 
-<https://res.cloudinary.com/dz7duml2h/video/upload/v1680424609/Simulator_Screen_Recording_-_iPhone_14_Pro_Max_-_2023-04-02_at_13.59.20_pe6wao.mov>
+(https://github.com/jeetsdev/coin_rich/blob/main/demo/Simulator%20Screen%20Recording%20-%20iPhone%2014%20Pro%20Max%20-%202023-04-02%20at%2013.59.20.mp4)
 
 ##### Installing flutter:
 

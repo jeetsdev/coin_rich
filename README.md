@@ -1,16 +1,59 @@
-# coin_rich
+# CoinRich
 
-A new Flutter project.
+Cross-platform, customer facing app developed using flutter
 
-## Getting Started
+#### Dependencies required:
 
-This project is a starting point for a Flutter application.
+-   Flutter
 
-A few resources to get you started if this is your first Flutter project:
+##### Demo:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<https://res.cloudinary.com/dz7duml2h/video/upload/v1680424609/Simulator_Screen_Recording_-_iPhone_14_Pro_Max_-_2023-04-02_at_13.59.20_pe6wao.mov>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##### Installing flutter:
+
+Flutter can be installed on Windows, Mac, Linux, ChromeOS by following the steps listed in the official [flutter docs here](https://docs.flutter.dev/get-started/install).
+
+##### Show information about the installed tooling
+
+```
+flutter doctor
+```
+
+##### Installing packages:
+
+```
+flutter packages get
+```
+
+##### Running the project:
+
+```
+flutter run
+```
+
+##### Running the web project on a specific port number:
+
+```
+flutter run -d web-server --web-hostname 0.0.0.0 --web-port <port>
+```
+
+##### Running tests with coverage report:
+
+```
+flutter test --coverage
+```
+
+##### Building the app with code obfuscation:
+
+```
+flutter build apk --obfuscate --split-debug-info=/<project-name>/<directory>
+```
+
+##### Building the project:
+
+```
+flutter build <platform name>
+
+example: flutter build web
+```

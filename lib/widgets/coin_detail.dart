@@ -124,10 +124,15 @@ class CoinDetailCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Icon(
-                Icons.arrow_circle_right,
-                color: Colors.yellow,
-                size: 30,
+              InkWell(
+                onTap: () {
+                  _modalBottomSheetMenu(context, coinData);
+                },
+                child: const Icon(
+                  Icons.arrow_circle_right,
+                  color: Colors.yellow,
+                  size: 30,
+                ),
               ),
             ],
           )
@@ -135,4 +140,51 @@ class CoinDetailCard extends StatelessWidget {
       ),
     );
   }
+}
+
+void _modalBottomSheetMenu(ctx, data) {
+  showModalBottomSheet(
+      context: ctx,
+      builder: (builder) {
+        return Container(
+          height: 350.0,
+          color: Colors.transparent, //could change this to Color(0xFF737373),
+          //so you don't have to change MaterialApp canvasColor
+          child: Container(
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    topRight: Radius.circular(10.0))),
+            child: buttomSheetDetail(data),
+          ),
+        );
+      });
+}
+
+Widget buttomSheetDetail(data) {
+  return Column(
+    children: [
+      Text(data.name),
+      Column(
+        children: [
+          Text("Tags"),
+          Wrap(
+            children: [
+              ...data.tags.map((e) {
+                return Chip(
+                  label: Text(e),
+                );
+              })
+            ],
+          )
+        ],
+      ),
+      Column(
+        children: [
+          Text("Price Last Updated"),
+        ],
+      ),
+    ],
+  );
 }

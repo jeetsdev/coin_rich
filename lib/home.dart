@@ -1,13 +1,18 @@
-import 'package:coin_rich/providers/app_state.dart';
-import 'package:coin_rich/widgets/coin_detail.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:coin_rich/providers/app_state.dart';
+import 'package:coin_rich/widgets/coin_detail.dart';
+
 class HomeScreen extends StatefulWidget {
   final String title;
+  final String query;
+
   const HomeScreen({
     Key? key,
     required this.title,
+    required this.query,
   }) : super(key: key);
 
   @override
@@ -18,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<AppState>(context, listen: false).getCoinDataHandler();
+      Provider.of<AppState>(context, listen: false)
+          .getCoinDataByQueryHandler(widget.query);
     });
     super.initState();
   }
@@ -84,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Align(
                                     alignment: Alignment.bottomRight,
                                     child: Text(
-                                      "Count: ${value.coinData!.data.length}",
+                                      "Count: ${value.searchCoinData!.data.length}",
                                       style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 12,
@@ -102,10 +108,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
                                     return CoinDetailCard(
-                                      coinData: value.coinData!.data.entries
+                                      coinData: value
+                                          .searchCoinData!.data.entries
                                           .elementAt(index)
                                           .value,
-                                      key: Key(value.coinData!.data.entries
+                                      key: Key(value
+                                          .searchCoinData!.data.entries
                                           .elementAt(index)
                                           .value
                                           .id
@@ -118,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       thickness: 0,
                                     );
                                   },
-                                  itemCount: value.coinData!.data.length),
+                                  itemCount: value.searchCoinData!.data.length),
                             ),
                           ],
                         ),

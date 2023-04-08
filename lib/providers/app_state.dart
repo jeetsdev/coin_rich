@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppState extends ChangeNotifier {
   CoinData? coinData;
+  CoinData? searchCoinData;
   bool isLoading = true;
   bool isError = false;
 
@@ -13,6 +14,22 @@ class AppState extends ChangeNotifier {
     try {
       final data = await AppServices().getCoinData();
       coinData = data;
+      notifyListeners();
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      isLoading = false;
+      isError = true;
+      notifyListeners();
+    }
+  }
+
+  getCoinDataByQueryHandler(String query) async {
+    isLoading = true;
+    notifyListeners();
+    try {
+      final data = await AppServices().getCoinDataByQuery(query);
+      searchCoinData = data;
       notifyListeners();
       isLoading = false;
       notifyListeners();

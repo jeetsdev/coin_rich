@@ -1,5 +1,6 @@
 import 'package:coin_rich/home.dart';
 import 'package:coin_rich/providers/app_state.dart';
+import 'package:coin_rich/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.black,
           )),
-      home: const HomeScreen(title: 'CoinRich'),
+      home: const SearchScreen(title: 'CoinRich'),
     );
   }
 }

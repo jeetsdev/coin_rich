@@ -14,4 +14,16 @@ class AppServices {
       throw "Something went wrong";
     }
   }
+
+  Future<dynamic> getCoinDataByQuery(String query) async {
+    try {
+      dynamic response = await Requests.getData(
+          "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=$query");
+      CoinData data = CoinData.fromJson(response.data);
+      return data;
+    } catch (e) {
+      debugPrint(e.toString());
+      throw "Something went wrong";
+    }
+  }
 }
